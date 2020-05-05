@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  IOSTutorial
+//  IosTutorial
 //
-//  Created by Developer Iakta on 30/04/2020.
-//  Copyright © 2020 Developer Iakta. All rights reserved.
+//  Created by Hussein Zayat on 30/04/2020.
+//  Copyright © 2020 Hussein Zayat. All rights reserved.
 //
 
 import UIKit
