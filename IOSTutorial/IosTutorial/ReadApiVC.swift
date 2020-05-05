@@ -37,6 +37,12 @@ class ReadApiVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(contacts[indexPath.row])
+        let vc = self.storyboard?.instantiateViewController(identifier: "UserDetailsViewControllerId") as! UserDetailsVC
+        vc.id = contacts[indexPath.row].id
+          self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 
 //    let contact: Contact
@@ -55,13 +61,14 @@ class ReadApiVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
     
       override func viewDidLoad() {
               super.viewDidLoad()
+            pageLabel.text = "Users DATA"
               // Do any additional setup after loading the view.
               usersTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
               usersTable.delegate = self
               usersTable.dataSource = self
               // Handle the text field’s user input through delegate callbacks.
               fetchUsers()
-        
+            
           }
           
           override func didReceiveMemoryWarning() {
@@ -88,63 +95,7 @@ class ReadApiVC: UIViewController, UITableViewDataSource, UITableViewDelegate, U
                 print("ERROR \(error)")
             }
             }.resume()
-          
-            
-            
         }
-     
-//
-//
-//            if let error = error {
-//                print("Error")
-//                return
-//            }
-//
-//            guard let httpResponse = response as? HTTPURLResponse,
-//                (200...299).contains(httpResponse.statusCode) else{
-//                    print("ERRORR")
-//                    return
-//            }
-//
-//            if let data = data{
-//                print("hey")
-//                let decoder = JSONDecoder()
-//                if let json = try? decoder.decode(_ , from: data){
-////                    completion(json)
-//                    print(json)
-//                }
-//            } else {
-////                completion(nil)
-//                print("EEEERRRROOOORRRR")
-//                return
-//            }
-//            print(String(data: data!,encoding: .utf8)!)
-//            do{
-//                let jsonResult = try JSONSerialization.jsonObject(with: data!, options: []) as! NSArray
-//                print(jsonResult[0])
-//                for object in jsonResult{
-//                    if let dict = object as? [String: Any]{
-////                        self.contacts?[i].id = dict["id"] as! Int
-////                        self.contacts?[i].name = dict["name"] as! String
-////                        self.contacts?[i].surname = dict["username"] as! String
-////                        self.contacts?[i].number = dict["number"] as! String
-//                        i += 1
-//                        print(dict["email"] as Any)
-//                    }
-//
-//                }
-//
-//            }catch{
-//                    print("NOOOO")
-//                }
-//
-//                let contacts = try? JSONDecoder().decode(ContactModel.self, from: data){
-//            completionHandler(contacts.results ?? [])
-//            }
-//        }
-//        }.resume()
-        
-//    }
 
 
 }
