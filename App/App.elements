@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <RootNamespace>App</RootNamespace>
+    <ProjectGuid>{BCA9FFFD-0360-4EC2-8190-34A2A2DE4CB0}</ProjectGuid>
+    <OutputType>Executable</OutputType>
+    <AssemblyName>App</AssemblyName>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <SDK>iOS</SDK>
+    <MangleTypeNames>True</MangleTypeNames>
+    <CreateAppBundle>True</CreateAppBundle>
+    <InfoPListFile>.\Resources\Info.plist</InfoPListFile>
+    <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>False</Optimize>
+    <OutputPath>.\Bin\Debug</OutputPath>
+    <ConditionalDefines>DEBUG;TRACE;</ConditionalDefines>
+    <GenerateDebugInfo>True</GenerateDebugInfo>
+    <EnableAsserts>True</EnableAsserts>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\Bin\Release</OutputPath>
+    <GenerateDSym>True</GenerateDSym>
+    <CreateIPA>True</CreateIPA>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreGraphics" />
+    <Reference Include="Foundation" />
+    <Reference Include="UIKit" />
+    <Reference Include="rtl" />
+    <Reference Include="libToffee" />
+    <Reference Include="libSwift" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppDelegate.pas" />
+    <Content Include="Resources\Info.plist" />
+    <AssetCatalog Include="Resources\Images.xcassets">
+      <AppIcon>AppIcon</AppIcon>
+    </AssetCatalog>
+    <Xib Include="Resources\LaunchScreen.xib" />
+    <Compile Include="..\..\RestClient\API\KONotification.swift" />
+    <Compile Include="..\..\RestClient\API\Enums\KONotificationSettingType.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOUser-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOLeaderboard-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\Int-Extension.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOArtist-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOComment-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOCommentContent-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOFollower-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOLike-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KONotification-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KONotificationSetting-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOPerformance-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOPostDetails-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOPostPerformanceContent-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOSong-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOSongCollection-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOSongInfo-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\Extensions\KOStripeItem-Codable.swift" />
+    <Compile Include="..\..\RestClient\API\KOUser.swift" />
+    <Compile Include="..\..\RestClient\API\KOLeaderboard.swift" />
+    <Compile Include="..\..\RestClient\API\KOArtist.swift" />
+    <Compile Include="..\..\RestClient\API\KOCallToAction.swift" />
+    <Compile Include="..\..\RestClient\API\KOComment.swift" />
+    <Compile Include="..\..\RestClient\API\KOCommentContent.swift" />
+    <Compile Include="..\..\RestClient\API\KOFollower.swift" />
+    <Compile Include="..\..\RestClient\API\KOGenre.swift" />
+    <Compile Include="..\..\RestClient\API\KOInteractionLog.swift" />
+    <Compile Include="..\..\RestClient\API\KOLike.swift" />
+    <Compile Include="..\..\RestClient\API\KOLikeLog.swift" />
+    <Compile Include="..\..\RestClient\API\KONotificationSetting.swift" />
+    <Compile Include="..\..\RestClient\API\KONotificationSubject.swift" />
+    <Compile Include="..\..\RestClient\API\KONotificationSubjectReference.swift" />
+    <Compile Include="..\..\RestClient\API\KOPerformance.swift" />
+    <Compile Include="..\..\RestClient\API\KOPerformanceContent.swift" />
+    <Compile Include="..\..\RestClient\API\KOPerformanceSetUp.swift" />
+    <Compile Include="..\..\RestClient\API\KOPostDetails.swift" />
+    <Compile Include="..\..\RestClient\API\KOReportLog.swift" />
+    <Compile Include="..\..\RestClient\API\KOSearchMetadata.swift" />
+    <Compile Include="..\..\RestClient\API\KOSong.swift" />
+    <Compile Include="..\..\RestClient\API\KOSongCollection.swift" />
+    <Compile Include="..\..\RestClient\API\KOSongInfo.swift" />
+    <Compile Include="..\..\RestClient\API\KOStripeItem.swift" />
+    <Compile Include="..\..\RestClient\Requests\AuthorizeRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostSavePerformance.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostSearchRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetLeaderboardRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetLikeListRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetFollowedListRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetFollowerListRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\AccountInfoRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\ForgotPasswordRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetArtistInfoRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetCommentListRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetFeedRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetHomePageRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetNotificationsCountRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetNotificationSettingsRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetNotificationsRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetPostDetailsRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetPreLoginDataRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetSongInfoRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetSongLyricsRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetSubscriptionStatusRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetTokenRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\GetUserInfoRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\LoginRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\LoginWithAppleRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\LoginWithFacebookRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\LogoutRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostChangePasswordRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostChangeUserDataRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostCommentRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostCompletePurchaseRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostDeletePostRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostEditPostRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostFollowSwitchRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostLikeSwitchRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostNotificationSettingSwitchRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostPrivacySwitchRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostProfilePicture.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostReadNotificationRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostRegisterRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostReportRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostStartPerformanceRequest.swift" />
+    <Compile Include="..\..\RestClient\Requests\PostViewsRequest.swift" />
+    <Compile Include="..\..\RestClient\Environment.swift" />
+    <Compile Include="..\..\RestClient\RestClient.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostNotificationSwitchResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetAccountInfoResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOLoginResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetLeaderboardsResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetHomePageDataResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetFeedResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostFollowSwitchResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostSearchResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\GetTokenResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetArtistInfoResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetCommentsListResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetFollowedListResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetFollowerListResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetLikeListResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetNotificationsCountResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetNotificationSettingsResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetNotificationsResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetPostDetailsResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetPreLoginDataResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetSongInfoResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetSongLyricsResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOGetSubscriptionStatusResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostCommentResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostLikeSwitchResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostPrivacySwitchResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostStartPerformanceResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\KOPostViewsResponse.swift" />
+    <Compile Include="..\..\RestClient\Responses\ServerResponse.swift" />
+    <Compile Include="..\..\RestClient\RestClient-Other.swift" />
+    <Compile Include="..\..\RestClient\RemoteData.swift" />
+    <Compile Include="..\..\RestClient\AuthResponse.swift" />
+    <Compile Include="..\..\RestClient\KORestClient.pas" />
+    <Compile Include="..\..\RestClient\RestClient-Authentication.swift" />
+    <Compile Include="..\..\RestClient\RestClient-Upload.pas" />
+    <Compile Include="..\..\RestClient\Endpoint.pas" />
+    <Compile Include="..\..\RestClient\Extensions\Bool-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\CGImage-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\Encodable-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\FileHandle-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\Optional-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\String-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\URLSession-Extension.swift" />
+    <Compile Include="..\..\RestClient\Extensions\User-Extension.swift" />
+    <Compile Include="..\..\RestClient\HTTPHeaders.swift" />
+    <Compile Include="..\..\RestClient\KORestError.swift" />
+    <Compile Include="..\..\RestClient\MultipartFormData.swift" />
+    <Compile Include="..\..\RestClient\Uploader.swift" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Toffee.targets" />
+</Project>
